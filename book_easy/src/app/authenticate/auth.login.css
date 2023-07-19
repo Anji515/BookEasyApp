@@ -2,20 +2,17 @@
     width: 25%;
     margin: auto;
     padding: 50px;
-    background-color: #030303;
     border-radius: 8px;
-    /* background-image: url('https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/07/15/Pictures/_70d6897a-c66b-11ea-be81-f7b2e356804f.jpg'); */
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
   }
 
   .login{
-    background-image: url('https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/07/15/Pictures/_70d6897a-c66b-11ea-be81-f7b2e356804f.jpg');
     padding-top: 110px;
   }
   
   h2 {
     text-align: center;
-    color: #fffcfc;
+    color: #0c0c0c;
     font-family: cursive;
 
   }
@@ -26,7 +23,7 @@
   
   label {
     font-weight: bold;
-    color: #ffffff;
+    color: #0f0f0f;
     display: block;
     margin-bottom: 8px;
     font-family: cursive;
