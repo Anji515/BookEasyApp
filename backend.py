@@ -7,6 +7,7 @@ import jwt
 import datetime
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
+from bson import json_util
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -44,7 +45,7 @@ def login():
     user = mongo.db.users.find_one({"email": email})
     # print(user)
     if user and bcrypt.check_password_hash(user["password"], password):
-        return jsonify(str(user)), 200
+        return json_util.dumps(user), 200
     else:
         return jsonify({"Error": "Invalid username or password"}), 201
 
@@ -106,23 +107,36 @@ def create_user():
 
 #     return jsonify({"token": jwt_token}), 200
 
+@app.route("/admin", methods=["GET"])
+def adminLogin():
+    # Retrieve the data from the request
+    email = request.args.get('email')
+    password = request.args.get('password')
 
-@app.route('/admin', methods=['GET'])
-def get_all_users():
-    users = mongo.db.users.find()
-    user_list = []
-    for user in users:
-        user_dict = {
-            '_id':str(user['_id']),
-            'name': user['name'],
-            'email': user['email'],
-            'gender': user['gender'],
-            'membership': user['membership'],
-            'type': user['type'],
-        }
-        # user['_id'] = str(user['_id'])
-        user_list.append(user_dict)
-    return jsonify(user_list)
+    # Find the user document by username
+    user = mongo.db.users.find_one({"email": email})
+    # print(user)
+    if user and bcrypt.check_password_hash(user["password"], password):
+        return json_util.dumps(user), 200
+    else:
+        return jsonify({"Error": "Invalid username or password"}), 201
+
+# @app.route('/admin', methods=['GET'])
+# def get_all_users():
+#     users = mongo.db.users.find()
+#     user_list = []
+#     for user in users:
+#         user_dict = {
+#             '_id':str(user['_id']),
+#             'name': user['name'],
+#             'email': user['email'],
+#             'gender': user['gender'],
+#             'membership': user['membership'],
+#             'type': user['type'],
+#         }
+#         # user['_id'] = str(user['_id'])
+#         user_list.append(user_dict)
+#     return jsonify(user_list)
 
 
 

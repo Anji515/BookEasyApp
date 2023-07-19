@@ -16,7 +16,7 @@ export class LoginComponentProtected {
   submitForm() {
     this.authService.login(this.email, this.password).subscribe(
       (response: any) => {
-        console.log(response['type']);
+        console.log(response);
         if (response['type'] == 'admin') {
           alert('Login successful !');
           this.authService.setLoggedIn(true);

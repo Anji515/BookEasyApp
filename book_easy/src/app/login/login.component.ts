@@ -26,7 +26,7 @@ export class LoginComponent {
       }).subscribe(
       (response: any) => {
         // Handle successful login response
-        console.log(response['type']);
+        console.log(response);
         if(response['type']=='user'){
           alert('Login successful !')
           localStorage.setItem('user',JSON.stringify(true))
