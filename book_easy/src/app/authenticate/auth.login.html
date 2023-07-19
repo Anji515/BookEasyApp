@@ -1,0 +1,17 @@
+<div class="login" [style.height]="'100vh'" >
+    <form (ngSubmit)="submitForm()" class="login-form">
+           <h2>Admin Login</h2>
+     <div class="form-group">
+       <label for="email">Email</label>
+       <input type="email" id="email" name="email" [(ngModel)]="email" required />
+     </div>
+     <div class="form-group">
+       <label for="password">Password</label>
+       <input type="password" id="password" name="password" [(ngModel)]="password" required />
+     </div>
+     <div class="btn">
+         <button type="submit" [style.fontFamily]="'cursive'">Login</button>
+     </div>
+   </form>
+   </div>
+  
