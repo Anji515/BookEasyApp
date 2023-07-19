@@ -133,6 +133,7 @@ def adminLogin():
     else:
         return jsonify({"Error": "Invalid username or password"}), 201
 
+
 # Posting a Movie
 
 
@@ -154,6 +155,7 @@ def get_movies():
 
 # Delete a specific Movies data
 
+
 @app.route('/movies/<string:movie_id>', methods=['DELETE'])
 def delete_movie(movie_id):
     # Find the movie by its ID
@@ -165,6 +167,33 @@ def delete_movie(movie_id):
     movie.delete()
 
     return jsonify({"message": "Movie deleted successfully with ID {movie_id}"}), 200
+
+# Update a specific Movies data
+
+
+@app.route('/movies/<string:movie_id>', methods=['PATCH'])
+def update_movie(movie_id):
+    # Find the movie by its ID
+    movie = Movie.objects(id=movie_id).first()
+    if not movie:
+        return jsonify({"message": f"Movie not found with ID {movie_id}"}), 404
+
+    # Get the updated data from the request body
+    updated_data = request.get_json()
+
+    # Update the movie fields
+    movie.title = updated_data.get('title', movie.title)
+    movie.description = updated_data.get('description', movie.description)
+    movie.duration = updated_data.get('duration', movie.duration)
+    movie.genre = updated_data.get('genre', movie.genre)
+    movie.language = updated_data.get('language', movie.language)
+    movie.release_date = updated_data.get('release_date', movie.release_date)
+    movie.image_cover = updated_data.get('image', movie.image_cover)
+    movie.rating = updated_data.get('rating', movie.rating)
+
+    # Save the changes to the database
+    movie.save()
+    return json_util.dumps({"message": "Movie updated successfully", "movie_id": movie_id}), 200
 
 
 # Posting a Theater
@@ -185,6 +214,29 @@ def get_theaters():
     theaters_list = [theater.to_mongo().to_dict() for theater in theaters]
     return json_util.dumps(theaters_list), 200
 
+# Update a specific theater
+
+
+@app.route('/theaters/<string:theater_id>', methods=['PATCH'])
+def update_theater(theater_id):
+    # Find the theater by its ID
+    theater = Theater.objects(id=theater_id).first()
+    if not theater:
+        return jsonify({"message": f"Theater not found with ID {theater_id}"}), 404
+
+    # Get the updated data from the request body
+    updated_data = request.get_json()
+    # Update the theater fields
+    theater.name = updated_data.get('name', theater.name)
+    theater.address = updated_data.get('address', theater.address)
+    theater.city = updated_data.get('city', theater.city)
+    theater.state = updated_data.get('state', theater.state)
+    theater.capacity = updated_data.get('capacity', theater.capacity)
+
+    # Save the changes to the database
+    theater.save()
+    return jsonify({"message": "Theater updated successfully", "theaterID": theater_id}), 200
+
 # Delete a specific theaters data
 
 
@@ -194,10 +246,8 @@ def delete_theater(theater_id):
     theater = Theater.objects(id=theater_id).first()
     if not theater:
         return jsonify({"message": f"Theater with ID {theater_id} is not found"}), 404
-
     # Delete the theater
     theater.delete()
-
     return jsonify({"message": f"Show deleted successfully with ID {theater_id}"}), 200
 
 
@@ -267,43 +317,3 @@ def delete_show(show_id):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-# @app.route('/admin', methods=['GET'])
-# def get_all_users():
-#     users = mongo.db.users.find()
-#     user_list = []
-#     for user in users:
-#         user_dict = {
-#             '_id':str(user['_id']),
-#             'name': user['name'],
-#             'email': user['email'],
-#             'gender': user['gender'],
-#             'membership': user['membership'],
-#             'type': user['type'],
-#         }
-#         # user['_id'] = str(user['_id'])
-#         user_list.append(user_dict)
-#     return jsonify(user_list)
-
-
-# Add other routes and functions for updating, deleting, and retrieving users by ID
-
-# @app.route('/admin', methods=['POST'])
-# def admin_login():
-#     login_data = request.get_json()
-#     email = login_data['email']
-#     password = login_data['password']
-
-#     admin = mongo.db.users.find_one({"email": email})
-#     if not admin or not verify_password(password, admin['password']):
-#         return jsonify({"message": "Invalid username or password"}), 401
-
-#     admin_id = str(admin['_id'])
-#     admin_type = admin['type']
-#     if admin_type != 'admin':
-#         return jsonify({"message": "Unauthorized"}), 401
-
-#     jwt_token = generate_jwt_token(admin_id, admin_type)
-
-#     return jsonify({"token": jwt_token}), 200
