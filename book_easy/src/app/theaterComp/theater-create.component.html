@@ -1,0 +1,30 @@
+<div class="edit-movie-form">
+    <h2>Create Theater</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label class="form-label" for="name">Name:</label>
+        <input class="form-input" type="text" id="name" name="name" [(ngModel)]="theater.name" required>
+      </div>
+      <div>
+        <label class="form-label" for="address">Address:</label>
+        <textarea class="form-textarea" id="address" name="address" [(ngModel)]="theater.address" required></textarea>
+      </div>
+      <div>
+        <label class="form-label" for="city">City:</label>
+        <input class="form-input" type="text" id="city" name="city" [(ngModel)]="theater.city" required>
+      </div>
+      <div>
+        <label class="form-label" for="state">State:</label>
+        <input class="form-input" type="text" id="state" name="state" [(ngModel)]="theater.state" required>
+      </div>
+      <div>
+        <label class="form-label" for="capacity">Capacity:</label>
+        <input class="form-input" type="number" id="capacity" name="capacity" [(ngModel)]="theater.capacity" required>
+      </div>
+    <!-- Add more movie fields as needed  -->
+  
+<div class="form-button">
+        <button type="submit">Create Theater</button>
+      </div>
+    </form>
+  </div>

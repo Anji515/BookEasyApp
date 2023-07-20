@@ -1,0 +1,16 @@
+<h2>Movies List</h2>
+<div class="movie-list">
+  <div class="movie-item" *ngFor="let movie of movies">
+    <img [src]="movie.image_cover" alt="{{ movie.title }}">
+    <h3>Id : {{ movie._id }}</h3>
+    <h3>{{ movie.title }}</h3>
+    <p>{{ movie.description }}</p>
+    <!-- Add more movie details as needed -->
+
+    <div class="button-container">
+      <button ><a href="/movies/create">Create</a></button>
+      <button (click)="editMovie(movie._id)">Edit</button>
+      <button (click)="deleteMovie(movie._id)">Delete</button>
+    </div>
+  </div>
+</div>

@@ -144,6 +144,26 @@ def create_movie():
     movie.save()
     return jsonify({'message': 'Movie created successfully', 'movie_id': str(movie.id)}), 200
 
+
+@app.route('/movies/<string:movie_id>', methods=['GET'])
+def get_movie_by_id(movie_id):
+    movie = Movie.objects(id=movie_id).first()
+    if not movie:
+        return jsonify({"message": f"Movie not found with ID {movie_id}"}), 404
+    movie_data = {
+        "id": str(movie.id),
+        "title": movie.title,
+        "description": movie.description,
+        "duration": movie.duration,
+        "genre": movie.genre,
+        "language": movie.language,
+        "release_date": movie.release_date,
+        "image_cover": movie.image_cover,
+        "rating": movie.rating
+    }
+
+    return jsonify(movie_data), 200
+
 # Get all Movies data
 
 
@@ -151,6 +171,8 @@ def create_movie():
 def get_movies():
     movies = Movie.objects()
     movie_list = [movie.to_mongo().to_dict() for movie in movies]
+    for movie in movie_list:
+        movie['_id'] = str(movie['_id'])
     return json_util.dumps(movie_list), 200
 
 # Delete a specific Movies data
@@ -162,10 +184,8 @@ def delete_movie(movie_id):
     movie = Movie.objects(id=movie_id).first()
     if not movie:
         return jsonify({"message": f"Movie not found with ID {movie_id}"}), 404
-
     # Delete the movie
     movie.delete()
-
     return jsonify({"message": "Movie deleted successfully with ID {movie_id}"}), 200
 
 # Update a specific Movies data
@@ -206,21 +226,42 @@ def create_theater():
 
 # Get all theaters data
 
+from bson import ObjectId
 
 @app.route('/theaters', methods=['GET'])
 def get_theaters():
     theaters = Theater.objects()
+    
     # Convert MongoDB documents to dictionaries
     theaters_list = [theater.to_mongo().to_dict() for theater in theaters]
+    # Convert the '_id' field to string format in each theater
+    for theater in theaters_list:
+        theater['_id'] = str(theater['_id'])
+    
     return json_util.dumps(theaters_list), 200
 
-# Update a specific theater
+@app.route('/theaters/<string:theater_id>', methods=['GET'])
+def get_theater_by_id(theater_id):
+    theater = Theater.objects(id=theater_id).first()
+    if not theater:
+        return jsonify({"message": f"Movie not found with ID {theater_id}"}), 404
+    theater_data = {
+        "id": str(theater.id),
+        "name": theater.name,
+        "city": theater.city,
+        "address": theater.address,
+        "capacity": theater.capacity,
+        "state": theater.state,
+    }
+
+    return jsonify(theater_data), 200
 
 
 @app.route('/theaters/<string:theater_id>', methods=['PATCH'])
 def update_theater(theater_id):
     # Find the theater by its ID
     theater = Theater.objects(id=theater_id).first()
+    print(theater_id)
     if not theater:
         return jsonify({"message": f"Theater not found with ID {theater_id}"}), 404
 
@@ -277,6 +318,10 @@ def get_shows():
     shows = Show.objects()
     # Convert MongoDB documents to dictionaries
     show_list = [show.to_mongo().to_dict() for show in shows]
+    for show in show_list:
+        show['_id']=str(show['_id'])
+        show['movie_id']=str(show['movie_id'])
+        show['theater_id']=str(show['theater_id'])
     return json_util.dumps(show_list), 200
 
 # Update the specific show data
