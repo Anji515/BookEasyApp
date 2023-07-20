@@ -1,0 +1,9 @@
+<div class="movie-details">
+  <h2>Movie Details</h2>
+  <h2>{{ movie._id }}</h2>
+  <img [src]="movie.image_cover" alt="{{ movie.title }}">
+  <p><strong>Title:</strong> {{ movie.title }}</p>
+  <p><strong>Description:</strong> {{ movie.description }}</p>
+  <!-- Add more movie details as needed -->
+</div>
+<button (click)="goBack()">Back</button>
