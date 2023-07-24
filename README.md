@@ -1,40 +1,58 @@
-Book Easy Application ReadMe
-
+# Book Easy Application
 Welcome to the Book Easy Application ReadMe file. This project is designed for educational and learning purposes and aims to provide hassle-free online booking for movies and live events, along with a helpful chatbot for assistance. The application is built using the Angular framework and CSS for the front-end, while Python is used for the backend, and Render is utilized to deploy the backend server.
 
-### Website Link
-You can access the Book Easy Application through the following link: Book Easy Application Website
+Link of our deployed project:  [Book Easy App]()
+<br/>
+Backend Deployed link: [BackendProducts]()
+<br/>
 
 ### Technology Stack Used 🌟
-The following technologies have been used in the development of the Book Easy Application:
 
--Angular
--CSS
--Python
--The backend server is deployed using Render.
+- Angular
+- CSS
+- Python
+- The backend server is deployed using Render.
 
-Notion Dock
-For detailed information about the project, you can refer to the Notion Dock.
+### Pages and features
+- Home Page:- Navigation Bar, Footer.
+- Login Page:- User authentication using MongoDB.
+- Movies Management Page :- Manage Data of movies,shows and theaters.
 
-Snapshots 📷
-Here are some snapshots of the Book Easy Application:
 
-Landing page (Home page) Landing Page Snapshot
-Movie page Movie Page Snapshot
-Event page Event Page Snapshot
-Signin page Signin Page Snapshot
-Admin page Admin Page Snapshot
-How to Run the Project
-To run the Book Easy Application, follow these steps:
+#### Glimpse and screenshots of our cloned website:
 
-Click on the provided Vercel link.
+### Landing Page
+
+![HomePage]()
+f
+### Login Page, Login Failure, Success and SignUp
+
+![SignUp]()
+ 
+![Login]()
+
+
+### Movies Management Page (Veiw,Delete and update)
+
+![Movies Management]()
+
+## Adding Movies Page (Admin)
+
+![AddingProducts]()
+
+## Addding Shows Page (Admin)
+
+![Managing Products]()
+
+## How to run the project
+- Click on the provided Vercel link.
 Start using the app for hassle-free online booking of movies and live events.
 Please note that the backend is hosted on Render, and the added data may be removed after some time due to Render's rules and limitations.
 
-End Notes 📑
+#### End Notes 📑
 During the development of this project, the main goal was to achieve a near-perfect clone of the original website while incorporating most of its features and functionalities. The construct week journey provided valuable experiences, and the learning process was enriching. Confidence in web development skills has significantly improved through the practical application of knowledge.
 
-Limitations
+#### Limitations
 One limitation of the application is that the free version of Render may cause delays in displaying data on the DOM. Please be patient while using the application in such cases.
 
 Thank you for choosing Book Easy Application for your entertainment needs! Feel free to explore the world of captivating cinema and thrilling performances with ease and convenience. If you have any questions or encounter any issues, don't hesitate to contact us. Enjoy your experience!
