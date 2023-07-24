@@ -7,7 +7,7 @@ import { Theater } from './theater.model';
   providedIn: 'root'
 })
 export class TheaterService {
-  private apiUrl = 'http://localhost:5000/theaters';
+  private apiUrl = 'https://easy-book.onrender.com/theaters';
 
   constructor(private http: HttpClient) { }
 

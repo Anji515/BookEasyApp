@@ -5,11 +5,14 @@
   padding: 50px;
   border-radius: 8px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+  background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+
 }
 
 .signup{
   padding-top: 40px;
-  height: 100vh;
+  max-height: 130vh;
+  background-image: url('https://images.pexels.com/photos/1025469/pexels-photo-1025469.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
 }
 
 .signup-form h2 {

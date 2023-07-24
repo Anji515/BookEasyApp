@@ -2,8 +2,10 @@
 h2 {
   color: #e43535;
   text-align: center;
-
-
+}
+.manage{
+  display: flex;
+  justify-content: space-between;
 }
 h2 button{
   padding: 10px;
@@ -91,7 +93,6 @@ h2 button{
   .create-btn{
     padding: 10px;
     border-radius: 16px;
-    margin-left: 10%;
     border: none;
     font-size: 20px;
     font-family: cursive;
@@ -101,3 +102,78 @@ h2 button{
     background: #3db547;
     padding:10px 15px;
   }
+
+
+.pagination-container {
+  display: flex;
+  width: 20%;
+  padding-top: 20px;
+  margin: auto;
+  justify-content: center;
+  align-content: center;
+  margin-top: 30px;
+  background-color: #3db547;
+  
+}
+
+.pagination-controls li {
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+  
+  margin: 0 5px;
+}
+
+.pagination-controls li a {
+  display: inline-block;
+  padding: 15px 10px;
+  text-decoration: none;
+  color: #b32f2f;
+  background-color: #007bff;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.pagination-controls li a:hover {
+  background-color: #00b318;
+}
+
+.pagination-controls .disabled a {
+  pointer-events: none;
+  background-color: #ac8989;
+  color: #3bbcb6;
+}
+
+.pagination-controls .previous a,
+.pagination-controls .next a {
+  padding: 15px 15px;
+  background-color: #007bff;
+  color: red;
+}
+
+.pagination-controls .current a {
+  background-color: #dd6f2b;
+}
+
+.pagination-controls .current a:hover {
+  background-color: #d65430;
+}
+
+
+select {
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+  appearance: none; /* Remove the default arrow icon */
+}
+
+/* Style the options in the dropdown */
+select option {
+  font-size: 14px;
+  padding: 6px 10px;
+}

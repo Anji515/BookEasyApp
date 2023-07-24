@@ -1,12 +1,23 @@
 <div class="movie-container">
-
+  <div class="manage">
+    <button class="create-btn"><a href="/movies/create">Create</a></button>
+    <button class="create-btn"><a href="/shows">Manage Shows</a></button>
+    <button class="create-btn"><a href="/theaters">Manage Theaters</a></button>
+  </div>
+  <br>
+  <br>
   <h2><button>Movies List</button></h2>
   <br>
-  <button class="create-btn"><a href="/movies/create">Create</a></button>
+  <select [(ngModel)]="selectedLanguage" (change)="getMovies()">
+    <option value="">All Languages</option>
+    <option value="English">English</option>
+    <option value="Telugu">Telugu</option>
+    <option value="Hindi">Hindi</option>
+  </select>
   <br>
   <br>
 <div class="movie-list">
-  <div class="movie-item" *ngFor="let movie of movies">
+  <div class="movie-item" *ngFor="let movie of movies | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
     <img [src]="movie.image_cover" alt="{{ movie.title }}">
     <h3>Id : {{ movie._id }}</h3>
     <h3>Movie : {{ movie.title }}</h3>
@@ -17,6 +28,9 @@
       <button (click)="deleteMovie(movie._id)">Delete</button>
     </div>
   </div>
+</div>
+<div class="pagination-container">
+  <pagination-controls (pageChange)="onPageChange($event)" previousLabel="Previous" nextLabel="Next"></pagination-controls>
 </div>
 
 </div>

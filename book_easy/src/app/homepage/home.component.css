@@ -2,6 +2,7 @@
     width: 90%;
     margin: 0 auto;
     padding: 20px;
+    background-image: url('https://images.pexels.com/photos/1037992/pexels-photo-1037992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   }
   
   /* Styles for the carousel */
@@ -52,6 +53,9 @@
     margin-top: 20px;
   }
   
+  h1{
+    font-family: cursive;
+  }
   /* Styles for individual movie cards */
   .movie-card {
     width: calc(33.33% - 20px);
@@ -76,12 +80,16 @@
   
   .movie-details {
     padding: 10px;
+    font-family: cursive;
+
   }
   
   .movie-title {
     margin: 0;
     font-size: 18px;
     font-weight: bold;
+    font-family: cursive;
+
   }
   
   .movie-genre {

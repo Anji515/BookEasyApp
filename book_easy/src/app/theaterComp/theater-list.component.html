@@ -1,15 +1,19 @@
-<h2>Theater List</h2>
-<button ><a href="/theaters/create">Create</a></button>
-<div class="movie-list">
+<div class="theater-container">
+
+  <h2>Theater List</h2>
+  <button ><a href="/theaters/create">Create</a></button>
+<div class="theater-list">
   <div class="movie-item" *ngFor="let theater of theaters">
     <!-- <img [src]="movie.image_cover" alt="{{ theater.title }}"> -->
     <h3>Id : {{ theater._id }}</h3>
     <h3>{{ theater.name }}</h3>
-    <p>{{ theater.city }}</p>
-    <p>{{ theater.state }}</p>
+    <p>City : {{ theater.city }}</p>
+    <p>State : {{ theater.state }}</p>
     <div class="button-container">
       <button (click)="editTheater(theater._id)">Edit</button>
       <button (click)="deleteTheater(theater._id)">Delete</button>
     </div>
   </div>
+</div>
+
 </div>

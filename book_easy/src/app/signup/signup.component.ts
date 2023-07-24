@@ -26,7 +26,7 @@ export class SignupComponent {
       membership:this.membership
     };
   
-    this.http.post('http://127.0.0.1:5000/signup', formData).subscribe(
+    this.http.post('https://easy-book.onrender.com/signup', formData).subscribe(
       (response) => {
         // Handle successful signup response
         console.log(response);

@@ -18,7 +18,7 @@ export class LoginComponent {
       password: this.password
     };
 
-    this.http.get('http://127.0.0.1:5000/user',{
+    this.http.get('https://easy-book.onrender.com/user',{
         headers: {
           "Content-Type": "application/json",
         },

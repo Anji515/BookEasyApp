@@ -22,6 +22,7 @@ import { ShowCreateComponent } from './showsComp/show-create.component';
 import { DatePipe } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { HomePageComponent } from './homepage/home.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { HomePageComponent } from './homepage/home.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule ,
+    NgxPaginationModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

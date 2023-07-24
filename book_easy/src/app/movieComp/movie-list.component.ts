@@ -13,6 +13,11 @@ import { DatePipe } from '@angular/common';
 export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
 
+  selectedLanguage: string = '';
+  sortOption: string = 'title'; // Default sort by title
+  currentPage: number = 1;
+  itemsPerPage: number = 6;
+
   constructor(private router: Router, private movieService: MovieService, private datePipe: DatePipe) {}
 
   ngOnInit() {
@@ -21,7 +26,7 @@ export class MovieListComponent implements OnInit {
 
 
   getMovies() {
-    this.movieService.getMovies().subscribe(
+    this.movieService.getMovies(this.selectedLanguage, this.sortOption).subscribe(
       (movies) => {
         this.movies = movies;
       },
@@ -47,4 +52,11 @@ export class MovieListComponent implements OnInit {
       }
     );
   }
+
+  onPageChange(page: number) {
+    this.currentPage = page;
+    // Fetch movies for the selected page
+    this.getMovies();
+  }
+  
 }

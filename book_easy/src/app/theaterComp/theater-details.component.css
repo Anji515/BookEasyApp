@@ -2,6 +2,8 @@
 h2 {
     font-size: 24px;
     margin-bottom: 10px;
+    font-family: cursive;
+
   }
   
   .theater-details {
@@ -25,6 +27,8 @@ h2 {
     font-size: 16px;
     margin-bottom: 10px;
     color: #555;
+    font-family: cursive;
+
   }
   
   button {
@@ -45,6 +49,7 @@ h2 {
   .form-label {
     font-weight: bold;
     margin-bottom: 5px;
+    font-family: cursive;
   }
   
   .form-input {
@@ -53,6 +58,7 @@ h2 {
     border-radius: 4px;
     font-size: 16px;
     margin-bottom: 15px;
+    font-family: cursive;
     width: 100%;
   }
   

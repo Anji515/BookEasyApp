@@ -1,69 +1,69 @@
-/* Movie List styles */
-h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  a{
-    text-decoration: none;
-    color: white;
-  }
+/* CSS for the theater list container */
+.theater-container {
+  padding: 20px;
+  background-color: #726c6c;
+  height: 100vh;
   
-  .movie-list {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-  }
-  
-  .movie-item {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: #f8f8f8;
-  }
-  
-  .movie-item img {
-    max-width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
-  .movie-item h3 {
-    font-size: 20px;
-    margin-top: 10px;
-  }
-  
-  .movie-item p {
-    font-size: 16px;
-    margin-top: 5px;
-    color: #555;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-  }
-  
-  .button-container button {
-    padding: 8px 16px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-  
-  .button-container button:hover {
-    background-color: #0056b3;
-  }
-  
-  
-  .movie-item p {
-    font-size: 16px;
-    margin-top: 5px;
-    color: #555;
-  }
-  
+}
+
+/* CSS for the theater list header */
+.theater-container h2 {
+  font-size: 24px;
+  font-family: cursive;
+  margin-bottom: 10px;
+}
+
+/* CSS for the "Create" button */
+.theater-container button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-family: cursive;
+  cursor: pointer;
+}
+
+a{
+  text-decoration: none;
+  color: wheat;
+}
+/* CSS for the theater item */
+.movie-item {
+  background-color: #cbc5c5;
+  padding: 20px;
+  /* border-radius: 5px; */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+/* CSS for the theater name */
+.movie-item h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+/* CSS for the theater city and state */
+.movie-item p {
+  font-size: 14px;
+  margin: 0;
+}
+h2{
+  color: white;
+}
+/* CSS for the buttons in the button container */
+.button-container button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  margin-right: 2px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
