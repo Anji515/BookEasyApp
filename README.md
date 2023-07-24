@@ -1,9 +1,9 @@
 # Book Easy Application
 Welcome to the Book Easy Application ReadMe file. This project is designed for educational and learning purposes and aims to provide hassle-free online booking for movies and live events, along with a helpful chatbot for assistance. The application is built using the Angular framework and CSS for the front-end, while Python is used for the backend, and Render is utilized to deploy the backend server.
 
-Link of our deployed project:  [Book Easy App]()
+Link of our deployed project:  [Book Easy App](https://book-easy-app.vercel.app/)
 <br/>
-Backend Deployed link: [BackendProducts]()
+Backend Deployed link: [BackendProducts](https://easy-book.onrender.com/movies)
 <br/>
 
 ### Technology Stack Used 🌟
