@@ -1,0 +1,73 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+  }
+
+  .show-container{
+    height: 100vh;     
+    background-image: url('https://images.pexels.com/photos/7991171/pexels-photo-7991171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  }
+  
+  /* Edit Show Form styles */
+  h2 {
+    color: #333;
+    text-align: center;
+  }
+
+  h2 button{
+    padding: 10px;
+    border-radius: 12px;
+    color: #f03d0b;
+    background-color: white;
+    font-size: 20px;
+    font-family: cursive;
+  }
+
+  
+  .edit-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #5f5b5b;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #f3f2f2;
+    font-family: cursive;
+  }
+  
+  input[type='text'] {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Your Font Name', cursive;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: cursive;
+    font-size: 18px;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #dfe1e3;
+    color: green;
+  }
+  

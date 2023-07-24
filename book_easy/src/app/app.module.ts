@@ -16,10 +16,19 @@ import { TheaterListComponent } from './theaterComp/theater-list.component';
 import { TheaterFormComponent } from './theaterComp/theater-form.component';
 import { TheaterDetailComponent } from './theaterComp/theater-detail.component';
 import { TheaterPostComponent } from './theaterComp/theater-create.component';
+import { ShowListComponent } from './showsComp/show-list.component';
+import { ShowEditComponent } from './showsComp/show-edit.component';
+import { ShowCreateComponent } from './showsComp/show-create.component';
+import { DatePipe } from '@angular/common';
+import { NavbarComponent } from './navbar.component';
+import { HomePageComponent } from './homepage/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
+    HomePageComponent,
     SignupComponent,
     LoginComponent,
     LoginComponentProtected,
@@ -31,7 +40,10 @@ import { TheaterPostComponent } from './theaterComp/theater-create.component';
     TheaterListComponent,
     TheaterPostComponent,
     TheaterFormComponent,
-    TheaterDetailComponent
+    TheaterDetailComponent,
+    ShowListComponent,
+    ShowEditComponent,
+    ShowCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +51,7 @@ import { TheaterPostComponent } from './theaterComp/theater-create.component';
     HttpClientModule,
     FormsModule 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

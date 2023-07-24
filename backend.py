@@ -136,7 +136,6 @@ def adminLogin():
 
 # Posting a Movie
 
-
 @app.route('/movies', methods=['POST'])
 def create_movie():
     movie_data = request.get_json()
@@ -169,7 +168,26 @@ def get_movie_by_id(movie_id):
 
 @app.route('/movies', methods=['GET'])
 def get_movies():
-    movies = Movie.objects()
+    sort_by = request.args.get('sort_by', 'title')  # Default sort by release_date
+    language = request.args.get('language') # Language filter (optional)
+    sort_order = request.args.get('sort_order', 'asc')
+    page = int(request.args.get('page', 1)) - 1  # Default page 1
+    limit = int(request.args.get('limit', 10))  # Default limit 10
+
+    # Calculate skip value for pagination
+    skip = page * limit
+    if sort_order not in ('asc', 'desc'):
+        return jsonify({"message": "Invalid sort_order parameter. Use 'asc' or 'desc'."}), 400
+    
+    sort_direction = '-' if sort_order == 'desc' else ''
+    # Query and sort movies
+    filter_query = {}
+    if language:
+        filter_query['language'] = language
+
+    # Query and sort movies with the optional filter
+    movies = Movie.objects(**filter_query).order_by(f"{sort_direction}{sort_by}").skip(skip).limit(limit)
+
     movie_list = [movie.to_mongo().to_dict() for movie in movies]
     for movie in movie_list:
         movie['_id'] = str(movie['_id'])
@@ -226,8 +244,6 @@ def create_theater():
 
 # Get all theaters data
 
-from bson import ObjectId
-
 @app.route('/theaters', methods=['GET'])
 def get_theaters():
     theaters = Theater.objects()
@@ -240,6 +256,7 @@ def get_theaters():
     
     return json_util.dumps(theaters_list), 200
 
+# get a theater by id
 @app.route('/theaters/<string:theater_id>', methods=['GET'])
 def get_theater_by_id(theater_id):
     theater = Theater.objects(id=theater_id).first()
@@ -324,6 +341,23 @@ def get_shows():
         show['theater_id']=str(show['theater_id'])
     return json_util.dumps(show_list), 200
 
+# get a show by id
+@app.route('/shows/<string:show_id>', methods=['GET'])
+def get_show_by_id(show_id):
+    show = Show.objects(id=show_id).first()
+    if not show:
+        return jsonify({"message": f"Show not found with ID {show_id}"}), 404
+
+    shows_data = {
+        "id":str(show.id),
+        "movie_id": str(show.movie_id.id),
+        "theater_id": str(show.theater_id.id),
+        "show_timing": show.show_timing,
+        "category": show.category
+    }
+
+    return jsonify(shows_data), 200
+
 # Update the specific show data
 
 
@@ -348,7 +382,6 @@ def update_show(show_id):
 
 # Delete the specific show data
 
-
 @app.route('/shows/<string:show_id>', methods=['DELETE'])
 def delete_show(show_id):
     # Find the show by its ID
@@ -359,6 +392,136 @@ def delete_show(show_id):
     show.delete()
     return jsonify({"message": f"Show deleted successfully with ID {show_id}"}), 200
 
+
+# Events and participants
+class Event:
+    def __init__(self, title, description, date, time,poster):
+        self.title = title
+        self.description = description
+        self.date = date
+        self.time = time
+        self.poster = poster
+
+@app.route('/events', methods=['GET'])
+def get_events():
+    # Get query parameters for sorting and pagination
+    sort_by = request.args.get('sort_by', 'title')  # Default to sorting by title
+    page = int(request.args.get('page', 1))
+    limit = int(request.args.get('limit', 10))
+
+    # Determine the skip value for pagination
+    skip = (page - 1) * limit
+
+    # Query the events collection with sorting and pagination options
+    events = mongo.db.events.find().sort(sort_by, 1).skip(skip).limit(limit)
+
+    event_list = []
+    for event in events:
+        event_data = {
+            'id': str(event['_id']),
+            'title': event['title'],
+            'description': event['description'],
+            'date': event['date'],
+            'time': event['time'],
+            'poster': event['poster']
+        }
+        event_list.append(event_data)
+
+    return jsonify(event_list)
+
+@app.route('/events', methods=['POST'])
+def create_event():
+    data = request.get_json()
+    event = Event(
+        title=data['title'],
+        description=data['description'],
+        date=data['date'],
+        time=data['time'],
+        poster=data['poster']
+    )
+    result = mongo.db.events.insert_one(event.__dict__)
+    return jsonify({'message': 'Event created successfully', 'event_id': str(result.inserted_id)})
+
+@app.route('/events/<event_id>', methods=['GET'])
+def get_event(event_id):
+    event = mongo.db.events.find_one({'_id': ObjectId(event_id)})
+    if event:
+        event_dict = {
+            'id': str(event['_id']),
+            'title': event['title'],
+            'description': event['description'],
+            'date': event['date'],
+            'time': event['time'],
+            'poster': event.get('poster', '')
+        }
+        return jsonify(event_dict)
+    else:
+        return jsonify({'message': 'Event not found'}), 404
+
+@app.route('/events/<event_id>', methods=['PUT'])
+def update_event(event_id):
+    data = request.get_json()
+    updated_event = {
+        'title': data.get('title'),
+        'description': data.get('description'),
+        'date': data.get('date'),
+        'time': data.get('time'),
+        'poster':data.get('poster')
+    }
+    result = mongo.db.events.update_one({'_id': ObjectId(event_id)}, {'$set': updated_event})
+    if result.modified_count > 0:
+        return jsonify({'message': 'Event updated successfully'})
+    else:
+        return jsonify({'message': 'Event not found'}), 404
+
+@app.route('/events/<event_id>', methods=['DELETE'])
+def delete_event(event_id):
+    result = mongo.db.events.delete_one({'_id': ObjectId(event_id)})
+    if result.deleted_count > 0:
+        return jsonify({'message': 'Event deleted successfully'})
+    else:
+        return jsonify({'message': 'Event not found'}), 404
+
+
+
+class Participant:
+    def __init__(self, name, email):
+        self.name = name
+        self.email = email
+
+@app.route('/events/<event_id>/participants', methods=['GET'])
+def get_participants(event_id):
+    event = mongo.db.events.find_one({'_id': ObjectId(event_id)})
+    if event:
+        participants = mongo.db.events.get('participants', [])
+        return jsonify(participants)
+    else:
+        return jsonify({'message': 'Event not found'}), 404
+
+@app.route('/events/<event_id>/participants', methods=['POST'])
+def add_participant(event_id):
+    data = request.get_json()
+    participant = Participant(name=data.get('name'), email=data.get('email'))
+    mongo.db.events.update_one({'_id': ObjectId(event_id)}, {'$push': {'participants': participant.__dict__}})
+    return jsonify({'message': 'Participant added to the event successfully'})
+
+@app.route('/events/<event_id>/participants', methods=['DELETE'])
+def remove_participant(event_id):
+    data = request.get_json()
+    if 'email' not in data:
+        return jsonify({'message': 'Participant email not provided'}), 400
+
+    event = mongo.db.events.find_one({'_id': ObjectId(event_id)})
+    if event:
+        participants = event.get('participants', [])
+        for participant in participants:
+            if participant.get('email') == data['email']:
+                participants.remove(participant)
+                mongo.db.events.update_one({'_id': ObjectId(event_id)}, {'$set': {'participants': participants}})
+                return jsonify({'message': 'Participant removed from the event successfully'})
+        return jsonify({'message': 'Participant not found in the event'}), 404
+    else:
+        return jsonify({'message': 'Event not found'}), 404
 
 if __name__ == '__main__':
     app.run(debug=True)

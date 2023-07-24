@@ -1,0 +1,16 @@
+<nav class="navbar" [style.backgroundColor]="'#6bd186'"  >
+    <div [style.display]="'flex'" [style.justifyContent]="'space-between'" [style.padding]="'0px 0px'"  [style.textAlign]="'center'">
+        <div [style.display]="'flex'" [style.alignItems]="'center'" [style.gap]="'20px'" [style.justifyContent]="'space-between'">
+            <img [style.width]="'200px'" [style.height]="'60px'"  [src]="'https://i.ibb.co/nCWkMHb/B-3.png'" alt="logo">
+            <input type="text" placeholder="Search movie here">
+        </div>
+        <div [style.display]="'flex'" [style.gap]="'50px'" [style.justifyContent]="'space-around'" [style.alignItems]="'center'">
+            <h3 [style.fontFamily]="'cursive'"><a routerLink="/">Home</a></h3>
+            <h3 [style.fontFamily]="'cursive'"><a routerLink="/movies">Add Movies</a></h3>
+            <h3 [style.fontFamily]="'cursive'"><a routerLink="/shows">Add Shows</a></h3>
+            <h3 [style.fontFamily]="'cursive'"><a routerLink="/theaters">Add Theaters</a></h3>
+            <h3 [style.fontFamily]="'cursive'"><a routerLink="/user">userLogin</a></h3>
+            <h3 [style.fontFamily]="'cursive'"><a routerLink="/admin">adminLogin</a></h3>
+        </div> 
+    </div>
+  </nav>

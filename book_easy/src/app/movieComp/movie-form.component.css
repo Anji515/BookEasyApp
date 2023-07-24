@@ -25,6 +25,7 @@ h2 {
     font-size: 16px;
     margin-bottom: 15px;
     width: 100%;
+    font-family: 'Your Font Name', cursive;
   }
   
   .form-textarea {
@@ -50,6 +51,7 @@ h2 {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
+    
   }
   
   button:hover {
