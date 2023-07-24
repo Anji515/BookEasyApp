@@ -31,8 +31,8 @@ h2 button{
   }
   .movie-list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 100px;
   }
   
   .movie-item {

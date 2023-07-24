@@ -1,0 +1,153 @@
+ .main-container {
+    max-width: 100%;
+    padding: 0% 10%;
+    margin: 0 auto;
+    background-color: #333545;
+  }
+  label{
+    color: white;
+    font-family: cursive;
+  }
+  
+  .movie-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 40px 80px;
+    margin-top: 20px;
+  }
+  
+  .movie-card {
+    background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    position: relative;
+    min-height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+  }
+  .movie-card img {
+    transition: transform 0.3s ease;
+  }
+  
+  .movie-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+  }
+  
+  .movie-card:hover img {
+    transform: scale(1.04);
+  }
+
+  .movie-image {
+    width: 60%;
+    height: 250px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .movie-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: cursive;
+  }
+  p{
+    font-family: cursive;
+  }
+  
+  .movie-description {
+    margin-bottom: 10px;
+  }
+  
+  .movie-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-top: 20px;
+    font-family: cursive;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #5e7ea1;
+    color: #101010;
+    border-radius: 3px;
+    font-family: cursive;
+  }
+  
+  .pagination button:hover {
+    background-color: #3eca3b;
+    color: white;
+  }  
+
+  .movie-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .movie-details {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  .rating {
+    font-size: 18px;
+    font-weight: bold;
+    color: #060606;
+  }
+  
+  .book-button {
+    padding: 12px 24px;
+    background-color: #3498DB;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: cursive;
+  }
+  
+  .book-button:hover {
+    background-color: #2980B9;
+  }
+
+  select {
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    appearance: none; /* Remove the default arrow icon */
+    font-family: cursive;
+  }
+  
+  /* Style the options in the dropdown */
+  select option {
+    font-size: 14px;
+    padding: 6px 10px;
+  }

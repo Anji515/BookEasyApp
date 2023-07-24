@@ -7,7 +7,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { LoginComponentProtected } from './authenticate/login.component';
-import { MovieComponent } from './Movies/movie.component';
 import { MovieListComponent } from './movieComp/movie-list.component';
 import { MovieFormComponent } from './movieComp/movie-form.component';
 import { MovieDetailComponent } from './movieComp/movie-detail.component';
@@ -23,6 +22,11 @@ import { DatePipe } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { HomePageComponent } from './homepage/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { GetMovieComponent } from './MovieData/get-movie.component';
+import { SingleMovieComponent } from './MovieData/single-movie.component';
+
+
+// import { MovieDataComponent } from './MovieData/movie.component';
 
 
 @NgModule({
@@ -33,7 +37,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SignupComponent,
     LoginComponent,
     LoginComponentProtected,
-    MovieComponent,
     MovieListComponent,
     MovieFormComponent,
     MovieDetailComponent,
@@ -44,7 +47,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TheaterDetailComponent,
     ShowListComponent,
     ShowEditComponent,
-    ShowCreateComponent
+    ShowCreateComponent,
+    GetMovieComponent,
+    SingleMovieComponent
   ],
   imports: [
     BrowserModule,

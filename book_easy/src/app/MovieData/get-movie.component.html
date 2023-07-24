@@ -1,0 +1,33 @@
+<div class="main-container">
+  <br>
+  <label for="">Filter by language : </label>
+  <select [(ngModel)]="selectedLanguage" (change)="getMovies()">
+    <option value="">All Languages</option>
+    <option value="English">English</option>
+    <option value="Telugu">Telugu</option>
+    <option value="Hindi">Hindi</option>
+  </select>
+  <br>
+  <br>
+  <div class="movie-container">
+    <div class="movie-card" *ngFor="let movie of filteredMovies">
+      <img class="movie-image" src="{{ movie.image_cover }}" alt="">
+      <h2 class="movie-title">{{ movie.title }}</h2>
+      <div class="movie-details">
+        <p>Language: {{ movie.language }}</p>
+        <p>Duration: {{ movie.duration }} minutes</p>
+      </div>
+      <p class="rating">Rating: {{ getStarRating(movie.rating) }}</p>
+      <br>
+      <button class="book-button" (click)="bookTicket(movie._id)">See More</button>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="pagination">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+  <br>
+</div>

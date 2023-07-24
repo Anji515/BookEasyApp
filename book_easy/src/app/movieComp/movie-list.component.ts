@@ -37,7 +37,6 @@ export class MovieListComponent implements OnInit {
   }
 
   editMovie(movieId: any) {
-    // console.log(movieId['$oid'])
     this.router.navigate(['/movies', movieId]);
   }
 
@@ -55,7 +54,6 @@ export class MovieListComponent implements OnInit {
 
   onPageChange(page: number) {
     this.currentPage = page;
-    // Fetch movies for the selected page
     this.getMovies();
   }
   

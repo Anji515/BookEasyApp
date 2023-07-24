@@ -1,0 +1,84 @@
+/* Add your existing CSS styles */
+
+.single-movie-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .inner{
+    margin: auto;
+    justify-content: center;
+  }
+  .movie-image {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .movie-image:hover {
+    transform: scale(1.1);
+  }
+  
+  .movie-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    font-family: cursive;
+  }
+  
+  .description {
+    width: 50%;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  p{
+    font-family: cursive;
+  }
+  .movie-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .movie-details p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .rating {
+    font-size: 24px;
+    font-weight: bold;
+    color: #F39C12;
+    margin-bottom: 20px;
+  }
+
+  button{
+    color: white;
+    background-color: rgba(53, 203, 178, 0.829);
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: cursive;
+    margin: 5px 20px;
+    cursor: pointer;
+  }
+  button a{
+  text-decoration: none;
+  color: white;
+  }

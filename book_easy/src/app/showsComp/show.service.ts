@@ -10,7 +10,7 @@ import { Show } from './show.model';
 })
 
 export class ShowService {
-  private apiUrl = 'https://easy-book.onrender.com'; // Replace with your backend API URL
+  private apiUrl = 'http://127.0.0.1:5000'; // Replace with your backend API URL
 
   constructor(private http: HttpClient) {}
 
@@ -36,6 +36,10 @@ export class ShowService {
     return this.http.get<Show>(`${this.apiUrl}/shows/${showId}`).pipe(
       catchError(this.handleError)
     );
+  }
+
+  getShowsByMovieId(movieId: string): Observable<Show[]> {
+    return this.http.get<Show[]>(`${this.apiUrl}/shows/movie/${movieId}`);
   }
 
   // Update a show by ID

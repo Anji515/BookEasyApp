@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { LoginComponentProtected } from './authenticate/login.component';
-import { MovieComponent } from './Movies/movie.component';
 import { MovieFormComponent } from './movieComp/movie-form.component';
 import { MoviePostComponent } from './movieComp/movie-create.component';
 import { TheaterListComponent } from './theaterComp/theater-list.component';
@@ -13,7 +12,9 @@ import { ShowEditComponent } from './showsComp/show-edit.component';
 import { ShowListComponent } from './showsComp/show-list.component';
 import { ShowCreateComponent } from './showsComp/show-create.component';
 import { HomePageComponent } from './homepage/home.component';
-// import { TheaterPostComponent } from './theaterComp/theater-create.component';
+import { MovieListComponent } from './movieComp/movie-list.component';
+import { GetMovieComponent } from './MovieData/get-movie.component';
+import { SingleMovieComponent } from './MovieData/single-movie.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path:'', component : HomePageComponent},
   {path:'signup',component: SignupComponent},
   {path:'admin',component: LoginComponentProtected},
-  {path:'movies',component: MovieComponent},
+  {path:'movies',component: MovieListComponent},
   {path:'movies/create',component: MoviePostComponent},
   {path:'movies/:movieId',component: MovieFormComponent},
   {path:'theaters',component: TheaterListComponent},
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path:'shows',component: ShowListComponent},
   {path:'shows/create',component: ShowCreateComponent},
   {path:'shows/:showId',component: ShowEditComponent},
-  // {path:'theaters/create',component: TheaterPostComponent},
+  {path:'getmovie',component: GetMovieComponent},
+  {path:'movie-details/:movieId',component: SingleMovieComponent},
 ];
 
 @NgModule({
