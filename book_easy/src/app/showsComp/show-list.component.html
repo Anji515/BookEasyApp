@@ -1,0 +1,29 @@
+<!-- show-list.component.html -->
+<div class="show-container">
+  <h2><button>Manage Shows</button></h2>
+  <button class="create-btn" routerLink="/shows/create">Create</button>
+<div class="show-cards">
+  <div *ngFor="let show of shows" class="show-card" (mouseenter)="showDetails(show._id)" (mouseleave)="hideDetails()">
+    <div class="show-info">
+      <h3 class="category"><strong>Category:</strong> 
+        <br>{{ show.category.join(' | ') }}</h3>
+      <p class="show-timings"><strong>Timings: </strong> 
+        <br>
+        {{ show.show_timing.join(' | ') }}</p>
+      <p class="show-dates"><strong>Dates: </strong> 
+        <br>
+        {{ show.dates.join(' | ') }}</p>
+      <div class="show-details" *ngIf="hoveredCard === show._id">
+        <p class="show-id">Show ID: {{ show._id }}</p>
+        <p class="movie-id">Movie ID: {{ show.movie_id }}</p>
+        <p class="theater-id">Theater ID: {{ show.theater_id }}</p>
+      </div>
+    </div>
+    <div class="show-buttons">
+      <button class="edit-btn" (click)="editShow(show._id)">Edit</button>
+      <button class="delete-btn" (click)="deleteShow(show._id)">Delete</button>
+    </div>
+  </div>
+</div>
+
+</div>

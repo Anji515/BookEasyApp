@@ -1,17 +1,35 @@
-<div class="login" [style.height]="'100vh'" >
- <form (ngSubmit)="submitForm()" class="login-form">
-        <h2>User Login</h2>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" [(ngModel)]="email" required />
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" [(ngModel)]="password" required />
-  </div>
-  <div class="btn">
+<div class="login" [style.height]="'100vh'">
+  <form (ngSubmit)="submitForm()" class="login-form">
+    <h2>User Login</h2>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+    <div class="btn">
       <button type="submit" [style.fontFamily]="'cursive'">Login</button>
-  </div>
-</form>
+      <br />
+      <br />
+      <p>
+        Signup if your not register
+        <strong><a href="/signup">Signup</a></strong>
+      </p>
+    </div>
+  </form>
 </div>
 <!-- https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/07/15/Pictures/_70d6897a-c66b-11ea-be81-f7b2e356804f.jpg -->

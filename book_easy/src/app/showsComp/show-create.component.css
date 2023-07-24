@@ -1,0 +1,60 @@
+/* show-create.component.css */
+h2 {
+    color: #333;
+    text-align: center;
+  }
+
+  h2 button{
+    padding: 10px;
+    border-radius: 16px;
+    font-size: 20px;
+    font-family: cursive;
+  }
+  .show-container{
+    height: 100vh;     
+    background-image: url('https://images.pexels.com/photos/7991171/pexels-photo-7991171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  }
+  form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #5c5656;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #f3f2f2;
+    font-family: cursive;
+  }
+  
+  input[type="text"],
+  button[type="submit"] {
+    width:95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Your Font Name', cursive;
+  }
+  
+  button[type="submit"] {
+    width:100%;
+    background-color: #007bff;
+    font-family: cursive;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #f0f2f3;
+    color: green;
+  }
+
+  

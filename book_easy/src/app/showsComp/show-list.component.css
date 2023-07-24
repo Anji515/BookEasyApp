@@ -1,0 +1,130 @@
+/* show-list.component.css */
+h2 {
+
+    text-align: center;
+  }
+
+  h2 button{
+    padding: 10px;
+    border-radius: 16px;
+    color: #f45607;
+    font-size: 20px;
+    font-family: cursive;
+  }
+  
+  .show-cards {
+    display: grid;
+ grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+  }
+  
+  .show-dates strong,
+  .show-timings strong,
+  .category strong{
+    color: rgb(0, 66, 128);
+    font-size: 22px;
+  }
+
+  .show-card {
+    margin: 20px;
+    padding: 15px;
+    width: 400px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.3s ease;
+    background-image: url('https://images.pexels.com/photos/3709371/pexels-photo-3709371.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  }
+  
+  .show-info {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .show-container{
+    height: 100vh;     
+    background-image: url('https://images.pexels.com/photos/7991171/pexels-photo-7991171.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  }
+  .category {
+    font-size: 18px;
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+
+  .show-dates {
+    font-size: 18px;
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+  
+  .show-timings{
+    font-size: 18px;
+    color: #28a745;
+    margin-bottom: 10px;
+  }
+  
+  .show-details {
+    display: none;
+  }
+  
+  .show-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .show-card:hover .show-details {
+    display: block;
+  }
+  
+  .show-details p {
+    font-size: 16px;
+    margin: 5px;
+    color: #e15526;
+  }
+  
+  .show-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .create-btn{
+    padding: 10px;
+    border-radius: 16px;
+    margin-left: 10%;
+    background-color: rgb(67, 67, 159);
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-family: cursive;
+  }
+  
+  .create-btn:hover{
+    background: #3db547;
+    padding:10px 15px;
+  }
+  
+  .edit-btn {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .delete-btn {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .edit-btn:hover, .delete-btn:hover {
+    transform: scale(1.1);
+  }
+  
