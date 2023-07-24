@@ -55,4 +55,7 @@ During the development of this project, the main goal was to achieve a near-perf
 #### Limitations
 One limitation of the application is that the free version of Render may cause delays in displaying data on the DOM. Please be patient while using the application in such cases.
 
+<br/>
+<br/>
+<br/>
 Thank you for choosing Book Easy Application for your entertainment needs! Feel free to explore the world of captivating cinema and thrilling performances with ease and convenience. If you have any questions or encounter any issues, don't hesitate to contact us. Enjoy your experience!
