@@ -7,7 +7,7 @@ import { Movie } from './movie.model';
   providedIn: 'root'
 })
 export class MovieService {
-  private baseUrl = 'http://127.0.0.1:5000'; // Replace with your backend API URL
+  private baseUrl = 'https://easy-book.onrender.com'; // Replace with your backend API URL
 
   constructor(private http: HttpClient) {}
 

@@ -10,7 +10,7 @@ import { Show } from './show.model';
 })
 
 export class ShowService {
-  private apiUrl = 'http://127.0.0.1:5000'; // Replace with your backend API URL
+  private apiUrl = 'https://easy-book.onrender.com'; // Replace with your backend API URL
 
   constructor(private http: HttpClient) {}
 
