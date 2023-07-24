@@ -6,11 +6,11 @@ Website-LINK:
 
 Welcome to our website - your ultimate entertainment destination! We offer hassle-free online booking for movies and live events, accompanied by a helpful chatbot for any assistance you need. Dive into a world of captivating cinema and thrilling performances with ease and convenience. Your entertainment experience starts here!
 
-Technology Stack Used 🌟
-Angular
-CSS
-python
-For API I Used Render To Delpoy My Backend Server
+### Technology Stack Used 🌟
+-Angular
+-CSS
+-python
+-For API I Used Render To Delpoy My Backend Server
 
 Notion Dock with all detailing
 https://www.notion.so/BookEasy-Application-bf667bd065334f57a25a338c98309b6c
