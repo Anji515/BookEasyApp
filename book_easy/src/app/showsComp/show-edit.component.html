@@ -1,0 +1,26 @@
+<div class="show-container">
+ <br>
+  <h2><button>Edit Show</button></h2>
+  <br>
+  <form (ngSubmit)="onSubmit()" class="edit-form">
+  <div>
+    <label for="movie_id">Movie ID:</label>
+    <input type="text" id="movie_id" name="movie_id" [(ngModel)]="show.movie_id" required>
+  </div>
+  <div>
+    <label for="theater_id">Theater ID:</label>
+    <input type="text" id="theater_id" name="theater_id" [(ngModel)]="show.theater_id" required>
+  </div>
+  <div>
+    <label for="show_timings">Show Timings (comma-separated):</label>
+    <input type="text" id="show_timings" name="show_timings" [(ngModel)]="show.show_timing" required>
+  </div>
+  <div>
+    <label for="category">Category (comma-separated):</label>
+    <input type="text" id="category" name="category" [(ngModel)]="show.category" required>
+  </div>
+  <button type="submit" class="update-btn">Update</button>
+</form>
+
+
+</div>
