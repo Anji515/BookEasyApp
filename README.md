@@ -14,44 +14,46 @@ Backend Deployed link: [BackendProducts](https://easy-book.onrender.com/movies)
 - The backend server is deployed using Render.
 
 ### Pages and features
-- Home Page:- Navigation Bar, Footer.
-- Login Page:- User authentication using MongoDB.
+- Home Page:- Navigation Bar,Beautiful Carousel and Recomendations of movies.
+- Login,Signup Page:- User authentication using MongoDB.
+- Movies Page:- Movies list ,single-movie details and booking.
+- Chat-bot Page:- Real-time Chat-bot using GenAI.
 - Movies Management Page :- Manage Data of movies,shows and theaters.
 
 
-#### Glimpse and screenshots of our cloned website:
+### Glimpse and screenshots of our cloned website:
 
-### Landing Page
+#### Landing Page
 
 ![HomePage](https://i.ibb.co/N6Bcsv2/Landing-Page.jpg)
 ![Homepage 2](https://i.ibb.co/BV7Hdwm/Landing-Page-Bottom.jpg)
 
-### Real-time Chat-bot using GenAI
+#### Real-time Chat-bot using GenAI
 
 ![Chatbot](https://i.ibb.co/TRksDqg/Chatbot.jpg)
 
-### Movies List,  signle movie detail and Bookings 
+#### Movies List,  signle movie detail and Bookings 
 
 ![Movies Data](https://i.ibb.co/7JdrfB2/Movies-List.jpg)
 ![Movies Booking and Details](https://i.ibb.co/4m7BRd1/Movie-Booking.jpg)
 
-### Login Page, Login Failure, Success and SignUp
+#### Login Page, Login Failure, Success and SignUp
 
 ![User Login](https://i.ibb.co/nQHVJjg/User-Login.jpg)
 ![Admin Login](https://i.ibb.co/DCmmyq3/Admin-Login.jpg)
 ![Signup](https://i.ibb.co/BNvvtZ7/SignUp.jpg)
 
 
-### Movies Management Page (Veiw,Delete and update)
+#### Movies Management Page (Veiw,Delete and update)
 
 ![Manage Movies](https://i.ibb.co/Gnn811p/Manage-Movies.png)
 ![Create New Movie](https://i.ibb.co/bXn3VGQ/Create-Movie.jpg)
 
-## Manage Shows (Admin) (Veiw,Delete and update)
+#### Manage Shows (Admin) (Veiw,Delete and update)
 
 ![Manage Shows](https://i.ibb.co/gzmGc8w/Manage-Shows.jpg)
 
-## Manage Theaters (Admin) (Veiw,Delete and update)
+#### Manage Theaters (Admin) (Veiw,Delete and update)
 
 ![Manage Theaters](https://i.ibb.co/5nrdKtX/Manage-Theaters.jpg)
 
