@@ -9,6 +9,9 @@
 
   .login{
     padding-top: 110px;
+    width: 100%;
+    min-height: 100vh;
+    max-height: auto;
     background-image: url('https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   }
   

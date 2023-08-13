@@ -3,15 +3,41 @@
     padding: 0% 10%;
     margin: 0 auto;
     background-color: #333545;
+    min-height: 100vh;
+    max-height: auto;
   }
   label{
     color: white;
     font-family: cursive;
   }
+
+  .loading-spinner {
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    height: 700px; /* Adjust the height based on your design */
+  }
+  
+  .loading-spinner img {
+    border-radius: 18px;
+    width: 500px; /* Adjust the size of the loading image */
+    height: 400px; /* Adjust the size of the loading image */
+    animation: spin 2s linear infinite;
+  }
+/*   
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  } */
   
   .movie-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 40px 80px;
     margin-top: 20px;
   }

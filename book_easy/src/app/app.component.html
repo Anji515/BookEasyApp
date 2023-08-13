@@ -1,20 +1,23 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <style>
-    h1{
-      text-align: center;
-      color: teal;
-    }
-    </style>
-</head>
-<body>
-  <app-navbar></app-navbar>
+<div class="container">  
+  <nav class="navbar" [style.backgroundColor]="'#6bd186'">
+      <div [style.display]="'flex'" [style.justifyContent]="'space-between'" [style.padding]="'0px 0px'" [style.textAlign]="'center'">
+        <div [style.display]="'flex'" [style.alignItems]="'center'" [style.gap]="'20px'" [style.justifyContent]="'space-between'">
+          <img [style.width]="'200px'" [style.height]="'60px'" [src]="'https://i.ibb.co/nCWkMHb/B-3.png'" alt="logo">
+          <input type="text" placeholder="Search movie here">
+        </div>
+        <div [style.display]="'flex'" [style.gap]="'50px'" [style.justifyContent]="'space-around'" [style.alignItems]="'center'">
+          <h3 [style.fontFamily]="'cursive'" ><a routerLink="/movies">{{getMovies()}}</a></h3>
+          <h3 (click)="logout()" [style.fontFamily]="'cursive'" [style.cursor]="'pointer'" >{{logoutUser()}}</h3>
+          <h3 [style.fontFamily]="'cursive'"><a routerLink="/">Home</a></h3>
+          <h3 [style.fontFamily]="'cursive'"><a routerLink="/getmovie">Movies</a></h3>
+          <h3 [style.fontFamily]="'cursive'"><a routerLink="/chat">Chat-bot</a></h3>
+          <h3 (click)="logout()" [style.fontFamily]="'cursive'"><a routerLink="/user" >{{getDetails()}}</a></h3>
+          <h3 [style.fontFamily]="'cursive'" ><a routerLink="/admin">{{getAdmnText()}}</a></h3>
+        </div>
+      </div>
+    </nav>
+<main>
   <router-outlet></router-outlet>
-</body>
-</html>
-<!-- Toolbar -->
+</main>
+
+</div>

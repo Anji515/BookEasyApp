@@ -1,6 +1,13 @@
 <div class="main-container">
-  <br>
-  <label for="">Filter by language : </label>
+  <ng-template #loading>
+    <div class="loading-spinner">
+      <!-- Your loading spinner HTML or image goes here -->
+      <img src="https://i.pinimg.com/originals/95/ab/9d/95ab9d3dd7ac388e4caa8e6a836ac5d6.gif" alt="Loading...">
+    </div>
+  </ng-template>
+  <div >
+    <br>
+    <label for="">Filter by language : </label>
   <select [(ngModel)]="selectedLanguage" (change)="getMovies()">
     <option value="">All Languages</option>
     <option value="English">English</option>
@@ -9,7 +16,7 @@
   </select>
   <br>
   <br>
-  <div class="movie-container">
+  <div *ngIf="movies.length > 0; else loading" class="movie-container">
     <div class="movie-card" *ngFor="let movie of filteredMovies">
       <img class="movie-image" src="{{ movie.image_cover }}" alt="">
       <h2 class="movie-title">{{ movie.title }}</h2>
@@ -31,3 +38,5 @@
   </div>
   <br>
 </div>
+</div>
+

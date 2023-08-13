@@ -3,14 +3,21 @@ h2 {
     font-size: 24px;
     margin-bottom: 10px;
   }
-  
+  .main-container{
+    min-height: 100vh;
+    margin: auto;
+    padding-top: 50px;
+    background-image: url('https://th.bing.com/th/id/OIP.k_P0MOEWlpurSvV6HZtvRwHaEK?pid=ImgDet&w=3000&h=1687&rs=1');
+  }
   .edit-movie-form {
     max-width: 500px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ccc;
+    color: white;
     border-radius: 8px;
-    background-color: #f8f8f8;
+    font-family: cursive;
+    background-image: url('https://www.wallpapertip.com/wmimgs/15-155737_book-my-show-new-user-offer.jpg');
   }
   
   .form-label {
@@ -24,7 +31,8 @@ h2 {
     border-radius: 4px;
     font-size: 16px;
     margin-bottom: 15px;
-    width: 100%;
+    border: 1px solid rgb(13, 238, 238);
+    width: 95%;
     font-family: 'Your Font Name', cursive;
   }
   
@@ -34,13 +42,16 @@ h2 {
     border-radius: 4px;
     font-size: 16px;
     margin-bottom: 15px;
-    width: 100%;
+    width: 95%;
     resize: vertical;
+    border: 1px solid rgb(13, 238, 238);
+
   }
   
   .form-button {
     display: flex;
     justify-content: center;
+    
   }
   
   button {
@@ -51,8 +62,14 @@ h2 {
     color: #fff;
     font-size: 16px;
     cursor: pointer;
+    font-family: cursive;
   }
   
   button:hover {
     background-color: #0056b3;
+  }
+
+  form{
+    display: flex;
+    gap: 30px;
   }

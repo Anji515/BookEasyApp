@@ -16,12 +16,14 @@ export class LoginComponentProtected {
   submitForm() {
     this.authService.login(this.email, this.password).subscribe(
       (response: any) => {
-        console.log(response);
-        if (response['type'] == 'admin') {
+        // console.log(response);
+        if (response['user']['type'] == 'admin') {
           alert('Login successful !');
+          localStorage.setItem('username',JSON.stringify(response['user']['name']))
+          localStorage.setItem('token',JSON.stringify(response['token']))
           this.authService.setLoggedIn(true);
           localStorage.setItem('user', JSON.stringify(true));
-          this.router.navigate(['/add']);
+          this.router.navigate(['/movies']);
         } else {
           alert('Login failure, Invalid credentials !');
         }

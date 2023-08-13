@@ -26,10 +26,11 @@ export class LoginComponent {
       }).subscribe(
       (response: any) => {
         // Handle successful login response
-        console.log(response);
+        // console.log(response);
         if(response['type']=='user'){
           alert('Login successful !')
-          localStorage.setItem('user',JSON.stringify(true))
+          localStorage.setItem('normal_user',JSON.stringify(true))
+          localStorage.setItem('normal_username',JSON.stringify(response['name']))
         }else{
           alert('Login failure, Invalid credentials !')
         }

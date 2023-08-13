@@ -1,28 +1,34 @@
-<div class="edit-movie-form">
+<div class="main-container">
+  <div class="edit-movie-form">
     <h2>{{ isNew ? 'Create Movie' : 'Edit Movie' }}</h2>
     <form (ngSubmit)="onSubmit()">
       <div>
-        <label class="form-label" for="title">Title:</label>
-        <input class="form-input" type="text" id="title" name="title" [(ngModel)]="movie.title" required>
+        <div>
+          <label class="form-label" for="title">Title:</label>
+          <input class="form-input" type="text" id="title" name="title" [(ngModel)]="movie.title" required>
+        </div>
+        <div>
+          <label class="form-label" for="description">Description:</label>
+          <textarea class="form-textarea" id="description" name="description" [(ngModel)]="movie.description" required></textarea>
+        </div>
+        <div>
+          <label class="form-label" for="duration">Duration (minutes):</label>
+          <input class="form-input" type="number" id="duration" name="duration" [(ngModel)]="movie.duration" required>
+        </div>
+        <div>
+          <label class="form-label" for="genre">Genre:</label>
+          <input class="form-input" type="text" id="genre" name="genre" [(ngModel)]="movie.genre" required>
+        </div>
+        <div>
+          <label class="form-label" for="language">Language:</label>
+          <input class="form-input" type="text" id="language" name="language" [(ngModel)]="movie.language" required>
+        </div>
       </div>
+
       <div>
-        <label class="form-label" for="description">Description:</label>
-        <textarea class="form-textarea" id="description" name="description" [(ngModel)]="movie.description" required></textarea>
-      </div>
-      <div>
-        <label class="form-label" for="duration">Duration (minutes):</label>
-        <input class="form-input" type="number" id="duration" name="duration" [(ngModel)]="movie.duration" required>
-      </div>
-      <div>
-        <label class="form-label" for="genre">Genre:</label>
-        <input class="form-input" type="text" id="genre" name="genre" [(ngModel)]="movie.genre" required>
-      </div>
-      <div>
-        <label class="form-label" for="language">Language:</label>
-        <input class="form-input" type="text" id="language" name="language" [(ngModel)]="movie.language" required>
-      </div>
-      <div>
-        <label class="form-label" for="release_date">Release Date:</label>
+        
+        <div>
+          <label class="form-label" for="release_date">Release Date:</label>
         <input class="form-input" type="date" id="release_date" name="release_date" [(ngModel)]="movie.release_date" required>
       </div>
       <div>
@@ -38,5 +44,7 @@
       <div class="form-button">
         <button type="submit">{{ isNew ? 'Create' : 'Update' }} Movie</button>
       </div>
+    </div>
     </form>
+  </div>
   </div>

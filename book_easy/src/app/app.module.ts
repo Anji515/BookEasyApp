@@ -19,20 +19,15 @@ import { ShowListComponent } from './showsComp/show-list.component';
 import { ShowEditComponent } from './showsComp/show-edit.component';
 import { ShowCreateComponent } from './showsComp/show-create.component';
 import { DatePipe } from '@angular/common';
-import { NavbarComponent } from './navbar.component';
 import { HomePageComponent } from './homepage/home.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { GetMovieComponent } from './MovieData/get-movie.component';
 import { SingleMovieComponent } from './MovieData/single-movie.component';
-
-
-// import { MovieDataComponent } from './MovieData/movie.component';
-
+import { ChatBotComponent } from './chat-bot/chat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomePageComponent,
     SignupComponent,
     LoginComponent,
@@ -49,7 +44,8 @@ import { SingleMovieComponent } from './MovieData/single-movie.component';
     ShowEditComponent,
     ShowCreateComponent,
     GetMovieComponent,
-    SingleMovieComponent
+    SingleMovieComponent,
+    ChatBotComponent
   ],
   imports: [
     BrowserModule,

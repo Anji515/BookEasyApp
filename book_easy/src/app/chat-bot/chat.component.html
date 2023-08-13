@@ -1,0 +1,39 @@
+<div class="main-container">
+    <div class="chat">
+        <div class="chat-container">
+      <h2>Welcome to Chat Bot</h2>
+    </div>
+    <div class="predefined-options" *ngIf="showOptions">
+        <h3>Choose an option:</h3>
+        <div class="option-buttons">
+          <button *ngFor="let option of predefinedOptions" (click)="selectOption(option)">
+            {{ option }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="chat-messages">
+        <ng-container *ngIf="!isLoading; else loadingSpinner">
+            <div *ngFor="let message of chatMessages" [ngClass]="{'user-message': !message.isBotResponse, 'bot-message': message.isBotResponse}">
+              <hr>
+              <br>
+              <h3>{{ message.text }}</h3>
+            </div>
+          </ng-container>
+          <ng-template #loadingSpinner>
+            <div class="loading-spinner">
+              <!-- Your loading spinner HTML or image goes here -->
+              <img src="https://iaa.edu.in/public/admin_assets/images/admin_loader.gif" alt="Loading...">
+            </div>
+          </ng-template>
+    </div>
+    <div class="chat-input">
+      <input type="text" [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Type your message...">
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  
+    <!-- Predefined Options -->
+
+  
+  
+    </div>

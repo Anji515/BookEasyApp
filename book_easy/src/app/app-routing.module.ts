@@ -15,6 +15,7 @@ import { HomePageComponent } from './homepage/home.component';
 import { MovieListComponent } from './movieComp/movie-list.component';
 import { GetMovieComponent } from './MovieData/get-movie.component';
 import { SingleMovieComponent } from './MovieData/single-movie.component';
+import { ChatBotComponent } from './chat-bot/chat.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path:'shows/:showId',component: ShowEditComponent},
   {path:'getmovie',component: GetMovieComponent},
   {path:'movie-details/:movieId',component: SingleMovieComponent},
+  {path:'chat',component: ChatBotComponent}
 ];
 
 @NgModule({

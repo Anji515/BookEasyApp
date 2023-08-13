@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, g
+from flask import Flask, jsonify, request, g, render_template
 from flask_pymongo import PyMongo
 from dotenv import load_dotenv
 import os
@@ -9,6 +9,7 @@ from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from bson import json_util, ObjectId
 from models import Movie, Show, Theater
+import openai
 
 # Load environment variables from the .env file
 load_dotenv()
@@ -124,15 +125,14 @@ def adminLogin():
     # Retrieve the data from the request
     email = request.args.get('email')
     password = request.args.get('password')
-
+    token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjI3NTI2MDQ4LCJleHAiOjE2Mjc1MjY2NDh9.zDmq7HLMmHwlgvCmW7tDxx-l6wAeTRTJ_zAxCThsPaI"
     # Find the user document by username
     user = mongo.db.users.find_one({"email": email})
     # print(user)
     if user and bcrypt.check_password_hash(user["password"], password):
-        return json_util.dumps(user), 200
+        return json_util.dumps({"user":user,"token":token}), 200
     else:
         return jsonify({"Error": "Invalid username or password"}), 201
-
 
 # Posting a Movie
 
@@ -329,6 +329,7 @@ def create_show():
     return jsonify({"message": "Show created successfully", "show_id": str(show.id)}), 201
 
 
+
 # Get all shows data
 @app.route('/shows', methods=['GET'])
 def get_shows():
@@ -347,6 +348,24 @@ def get_show_by_id(show_id):
     show = Show.objects(id=show_id).first()
     if not show:
         return jsonify({"message": f"Show not found with ID {show_id}"}), 404
+
+    shows_data = {
+        "id":str(show.id),
+        "movie_id": str(show.movie_id.id),
+        "theater_id": str(show.theater_id.id),
+        "show_timing": show.show_timing,
+        "category": show.category
+    }
+
+    return jsonify(shows_data), 200
+
+
+# get a show by movie_id
+@app.route('/shows/movie/<string:movie_id>', methods=['GET'])
+def get_show_by_movie_id(movie_id):
+    show = Show.objects(movie_id=movie_id).first()
+    if not show:
+        return jsonify({"message": f"Show not found with ID {movie_id}"}), 404
 
     shows_data = {
         "id":str(show.id),
@@ -522,6 +541,44 @@ def remove_participant(event_id):
         return jsonify({'message': 'Participant not found in the event'}), 404
     else:
         return jsonify({'message': 'Event not found'}), 404
+    
+# Set up the OpenAI API
+
+openai.api_key = os.getenv("openai.api_key")
+@app.route('/chat', methods=['POST'])
+def chat():
+    data = request.json
+    user_input = data['message']
+    response = generate_chat_response(user_input)
+    return jsonify({'response': response})
+
+# Predefined questions and default answers
+default_responses = {
+    "What is the status of my ticket?": "Hello Sir/Madam your ticket booking is in progress ",
+    "Best movie of the day": "The best movie of the day is Avatar",
+    "What can you do?": "I can answer your questions and have a conversation with you.",
+     "What is your name?":"My name is bookEasy  chatbot, i am here to help you queries related to your tickets"
+}
+
+# Function to generate chat responses
+def generate_chat_response(user_input):
+
+    # Check if the user's input matches a predefined question
+    if user_input in default_responses:
+        return default_responses[user_input]
+    
+    # Generate a response using OpenAI GPT-3.5 model
+    result = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt="you have to act like chat bot similary like bookmyshow app chat bot who give only answer to user who ask movie booking and movies show, event, webseries related question if they ask other question bot reply i dont have idea about it"+"this user input"+user_input+"please make sure it ask releavent question only , also if user ask any question related to movie ticket event ticket  please answer it in random manner with random data",
+        max_tokens=50,
+        temperature=0.8,
+        n=1,
+        stop=None,
+        timeout=15
+    )
+    
+    return result.choices[0].text.strip()
 
 if __name__ == '__main__':
     app.run(debug=True)
