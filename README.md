@@ -23,26 +23,37 @@ Backend Deployed link: [BackendProducts](https://easy-book.onrender.com/movies)
 
 ### Landing Page
 
-![HomePage]()
-f
+![HomePage](https://i.ibb.co/N6Bcsv2/Landing-Page.jpg)
+![Homepage 2](https://i.ibb.co/BV7Hdwm/Landing-Page-Bottom.jpg)
+
+### Real-time Chat-bot using GenAI
+
+![Chatbot](https://i.ibb.co/TRksDqg/Chatbot.jpg)
+
+### Movies List,  signle movie detail and Bookings 
+
+![Movies Data](https://i.ibb.co/7JdrfB2/Movies-List.jpg)
+![Movies Booking and Details](https://i.ibb.co/4m7BRd1/Movie-Booking.jpg)
+
 ### Login Page, Login Failure, Success and SignUp
 
-![SignUp]()
- 
-![Login]()
+![User Login](https://i.ibb.co/nQHVJjg/User-Login.jpg)
+![Admin Login](https://i.ibb.co/DCmmyq3/Admin-Login.jpg)
+![Signup](https://i.ibb.co/BNvvtZ7/SignUp.jpg)
 
 
 ### Movies Management Page (Veiw,Delete and update)
 
-![Movies Management]()
+![Manage Movies](https://i.ibb.co/Gnn811p/Manage-Movies.png)
+![Create New Movie](https://i.ibb.co/bXn3VGQ/Create-Movie.jpg)
 
-## Adding Movies Page (Admin)
+## Manage Shows (Admin) (Veiw,Delete and update)
 
-![AddingProducts]()
+![Manage Shows](https://i.ibb.co/gzmGc8w/Manage-Shows.jpg)
 
-## Addding Shows Page (Admin)
+## Manage Theaters (Admin) (Veiw,Delete and update)
 
-![Managing Products]()
+![Manage Theaters](https://i.ibb.co/5nrdKtX/Manage-Theaters.jpg)
 
 ## How to run the project
 - Click on the provided Vercel link.
